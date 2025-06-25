@@ -1,0 +1,6 @@
+@scheduled_deployment_demo_HostAddress = http://localhost:5171
+
+GET {{scheduled_deployment_demo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
