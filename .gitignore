@@ -1,0 +1,121 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files.
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sdf
+*.cache
+*.dbmdl
+*.bak
+*.backup
+*.log
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Visual Studio for Mac
+.vscode/
+.idea/
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Rider IDE
+.idea/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code launch.json, settings.json
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Coverlet Coverage Results
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Client-side libraries
+wwwroot/lib/
+
+# npm Packages
+node_modules/
+
+# Yarn Packages
+.yarn/
+.pnp.*
+.pnp/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Azure Pipelines
+.azure-pipelines/
+
+# JetBrains Rider
+.idea/
+
+# Docker
+**/docker-compose*.yml
+**/Dockerfile*
+
+# Local NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+.nuget/
+
+# Resharper
+_ReSharper*/
+*.ReSharper
+*.DotSettings.user
+resharper-host/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Mac system files
+.DS_Store
+
+# VS workspace
+.vs/

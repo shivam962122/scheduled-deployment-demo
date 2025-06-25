@@ -1,0 +1,40 @@
+name: Scheduled Deployment  # Descriptive name visible in GitHub UI
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # Triggers every day at 3:00 PM UTC
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # GitHub-provided Linux environment
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Execute Deployment Script with Retry Logic
+        run: |
+          for i in 1 2 3; do
+            echo "Deployment Attempt #$i"
+            if ./deploy.sh; then
+              echo "Deployment succeeded on attempt #$i"
+              exit 0
+            fi
+            echo "Deployment failed. Retrying in 30 seconds..."
+            sleep 30
+          done
+          echo "Deployment failed after 3 attempts. Triggering alert."
+          exit 1
+
+      - name: Send Email Notification if Failure
+        if: failure()  # Only runs if previous step fails
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.yourserver.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Scheduled Deployment Failure on $(date)"
+          body: "Deployment failed after 3 attempts. Please check the Actions log."
+          to: shivam962122@gmail.com
+          from: GitHub CI <ci-bot@example.com>
