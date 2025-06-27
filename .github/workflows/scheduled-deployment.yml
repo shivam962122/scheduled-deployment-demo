@@ -27,14 +27,15 @@ jobs:
           exit 1
 
       - name: Send Email Notification if Failure
-        if: failure()  # Only runs if previous step fails
+        if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.yourserver.com
+          server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "Scheduled Deployment Failure on $(date)"
-          body: "Deployment failed after 3 attempts. Please check the Actions log."
-          to: shivam962122@gmail.com
-          from: GitHub CI <ci-bot@example.com>
+          username: ${{ secrets.SMTP_USERNAME }}  # e.g., shivamgupta251298@gmail.com
+          password: ${{ secrets.SMTP_PASSWORD }}  # App password (not your login password)
+          subject: "Scheduled Deployment Failed"
+          body: "Deployment failed after 3 attempts. Please check the Actions log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          to: shivamgupta25121998@gmail.com
+          from: GitHub CI <shivamgupta251298@gmail.com>
+
